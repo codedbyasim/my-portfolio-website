@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Hanif - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Boxicons CSS for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <!-- Google Fonts - Poppins (for general text) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Google Fonts - Montserrat (for logo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <style>
+        /* Custom CSS variables for theme */
+        :root {
+            --body-bg: #2d2e32;
+            --nav-bg: #2d2e32;
+            --text-color: #FFF;
+            --accent-color: #64f4ab;
+            --secondary-accent: #ffaf29;
+            --card-bg: #25262a;
+        }
+
+        body.light-mode {
+            --body-bg: #f0f2f5;
+            --nav-bg: #ffffff;
+            --text-color: #333;
+            --accent-color: #1a73e8;
+            --secondary-accent: #f57c00;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        nav {
+            position: relative;
+            padding: 20px 14px;
+            top: 0;
+            left: 0;
+            height: 70px;
+            width: 100%;
+            background-color: var(--nav-bg);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.4s ease;
+        }
+
+        nav .nav-bar {
+            position: relative;
+            height: 100%;
+            max-width: 100%;
+            width: 100%;
+            background-color: var(--nav-bg);
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .nav-bar .sidebarOpen {
+            color: var(--text-color);
+            font-size: 25px;
+            padding: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Unique style for logo text */
+        nav .nav-bar .logo a,
+        .menu .logo-toggle .logo a,
+        .footer-section .logo-footer a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+
+        .menu .logo-toggle {
+            display: none;
+        }
+
+        .nav-bar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-bar .nav-links li {
+            margin: 0 15px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            position: relative;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li:hover a::before {
+            opacity: 1;
+        }
+
+        .conbtn {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--card-bg);
+            background-color: var(--secondary-accent);
+            border-radius: 1em;
+            padding: 0.8em 1.8em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .conbtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .conbtn:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 990px) {
+            .contact-us-btn {
+                display: none;
+            }
+
+            .sidebarOpen {
+                display: block;
+            }
+        }
+
+        @media (max-width: 790px) {
+            nav .nav-bar .sidebarOpen {
+                display: block;
+                color: var(--text-color);
+            }
+
+            .menu {
+                position: fixed;
+                height: 100%;
+                width: 320px;
+                left: -100%;
+                top: 0;
+                padding: 20px;
+                background-color: var(--nav-bg);
+                z-index: 100;
+                transition: all 0.4s ease;
+            }
+
+            .conbtn {
+                display: none;
+            }
+
+            nav.active .menu {
+                left: 0%;
+            }
+
+            nav.active .nav-bar .navLogo a {
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .menu .logo-toggle {
+                display: block;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo-toggle .sidebarClose {
+                color: var(--text-color);
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .nav-bar .nav-links {
+                flex-direction: column;
+                padding-top: 30px;
+            }
+
+            .nav-links li a {
+                display: block;
+                margin-top: 20px;
+            }
+        }
+
+        /* Header Section */
+        .header-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-section .left-section,
+        .header-section .right-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+
+            .header-section .left-section,
+            .header-section .right-section {
+                width: 50%;
+                text-align: left;
+            }
+
+            .header-section .left-section {
+                padding-right: 20px;
+            }
+
+            .header-section .right-section {
+                padding-left: 20px;
+            }
+        }
+
+        .header-section .left-section img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .intro h2 {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .main-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .paragraph p {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .contact-button a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: var(--secondary-accent);
+            color: var(--card-bg);
+            border-radius: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 80px 20px;
+            background-color: var(--body-bg);
+        }
+
+        .skills-section .content-section {
+            color: var(--text-color);
+            padding-right: 40px;
+        }
+
+        .skills-section .content-section p {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .skills-section .content-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .skills-section .content-section .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        .skills-section .cv-button a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: var(--secondary-accent);
+            color: var(--card-bg);
+            border-radius: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .skills-section .cv-button a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .skills-section .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skills-section .skill-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills-section .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills-section .skill-card .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--body-bg);
+            border: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .skills-section .skill-card .icon-circle svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-color);
+        }
+        .skills-section .skill-card .icon-circle i {
+            font-size: 40px;
+            color: var(--accent-color);
+        }
+
+
+        .skills-section .skill-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skills-section .skill-card p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        /* Projects Section */
+        .project-section {
+            padding: 80px 20px;
+            background-color: var(--body-bg);
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .project-item {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .project-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .project-content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-image {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .project-content,
+            .project-image {
+                width: 50%;
+            }
+
+            .project-content {
+                text-align: left;
+            }
+        }
+
+        .project-content h4 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-content h2 {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .project-image img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            width: 24rem;
+            height: 18rem;
+        }
+
+        .read-more-link {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-accent);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-link:hover {
+            color: var(--accent-color);
+        }
+
+        .read-more-link svg {
+            margin-right: 8px;
+            fill: var(--secondary-accent);
+            transition: fill 0.3s ease;
+        }
+
+        .read-more-link:hover svg {
+            fill: var(--accent-color);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            flex: 1 1 200px;
+            min-width: 200px;
+            max-width: 25%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .stat-card {
+                max-width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card {
+                max-width: 90%;
+            }
+        }
+
+        .stat-card .num {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .text {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 20px;
+            background-color: var(--body-bg);
+        }
+
+        .testimonial-slide {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-slide {
+                flex-direction: row;
+            }
+        }
+
+        .testimonial-image {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-image,
+            .testimonial-content {
+                width: 50%;
+            }
+
+            .testimonial-content {
+                text-align: left;
+            }
+        }
+
+        .testimonial-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            width: 10rem;
+            height: 10rem;
+        }
+
+        .testimonial-content .quote-icon {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content .quote-icon svg {
+            fill: var(--accent-color);
+            height: 100%;
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .testimonial-content .designation {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        /* Slick Slider Custom Dots */
+        .slick-dots {
+            bottom: -50px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: var(--text-color);
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        .footer-section {
+            margin-top: 40px;
+            background-color: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .footer-section {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .footer-section .logo-footer {
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-section .logo-footer {
+                margin-bottom: 0;
+            }
+        }
+
+        .footer-section .logo-footer a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .footer-section .info-footer h3 {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-section .info-footer h3 {
+                margin-bottom: 0;
+            }
+        }
+
+        .footer-section .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 80px;
+        }
+
+        .footer-section .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* New Segmented Toggle Button */
+        .theme-toggle-segmented {
+            position: relative;
+            display: flex;
+            width: 150px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #3a3b3f;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-left: 20px;
+        }
+
+        .toggle-label {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            z-index: 1;
+            transition: color 0.4s ease-in-out; /* Updated transition */
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 20px;
+            transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out; /* Updated transition */
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Dark mode styles for the segmented toggle */
+        body.dark-mode .theme-toggle-segmented {
+            background-color: #3a3b3f;
+        }
+        body.dark-mode .toggle-thumb {
+            background-color: var(--accent-color);
+            transform: translateX(0);
+        }
+        body.dark-mode .toggle-label.dark-label {
+            color: var(--card-bg);
+        }
+        body.dark-mode .toggle-label.light-label {
+            color: var(--text-color);
+        }
+
+        /* Light mode styles for the segmented toggle */
+        body.light-mode .theme-toggle-segmented {
+            background-color: #e0e0e0;
+        }
+        body.light-mode .toggle-thumb {
+            background-color: var(--accent-color);
+            transform: translateX(100%);
+        }
+        body.light-mode .toggle-label.light-label {
+            color: var(--card-bg);
+        }
+        body.light-mode .toggle-label.dark-label {
+            color: var(--text-color);
+        }
+
+
+        /* Chatbot styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .chatbot-container.open {
+            transform: scale(1);
+        }
+
+        .chatbot-header {
+            background-color: var(--accent-color);
+            color: var(--card-bg);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .chatbot-header button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--card-bg);
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: var(--body-bg);
+        }
+
+        .chatbot-message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.5;
+        }
+
+        .chatbot-message.user {
+            background-color: var(--secondary-accent);
+            color: var(--card-bg);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-message.bot {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--card-bg);
+        }
+
+        .chatbot-input-area input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            margin-right: 10px;
+        }
+
+        .chatbot-input-area button {
+            background-color: var(--accent-color);
+            color: var(--card-bg);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input-area button:hover {
+            background-color: var(--secondary-accent);
+        }
+
+        .chatbot-toggle-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: var(--card-bg);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .chatbot-toggle-button:hover {
+            transform: scale(1.05);
+        }
+
+        .loading-indicator {
+            align-self: flex-start;
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-style: italic;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* --- New Animation Styles --- */
+
+        /* Base hidden state for animated elements */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Specific animation classes */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Active states for animations */
+        .animate-on-scroll.is-visible,
+        .fade-in.is-visible {
+            opacity: 1;
+        }
+
+        .slide-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in.is-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Delay for sequential animations within a section */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        .delay-600 { transition-delay: 0.6s; }
+        .delay-700 { transition-delay: 0.7s; }
+        .delay-800 { transition-delay: 0.8s; }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-bar">
+            <span class="logo navLogo">
+                <a href="#">Asim Hanif</a>
+            </span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">Asim Hanif</a></span>
+                    <i class='bx bx-x sidebarClose'></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="https://linktr.ee/masimhanif">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="flex items-center">
+                <!-- New Segmented Theme Toggle Button -->
+                <div class="theme-toggle-segmented" id="theme-toggle-segmented">
+                    <span class="toggle-label dark-label">Dark</span>
+                    <span class="toggle-label light-label">Light</span>
+                    <div class="toggle-thumb" id="toggle-thumb"></div>
+                </div>
+                <a href="https://linktr.ee/masimhanif" class="conbtn ml-4">Contact Me</a>
+                <i class='bx bx-menu sidebarOpen'></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="header-section container mx-auto">
+        <div class="left-section animate-on-scroll slide-up">
+            <img src="Developer1.png" alt="Cartoon Developer">
+        </div>
+        <div class="right-section animate-on-scroll fade-in delay-200">
+            <div class="intro">
+                <h2>--Introduction</h2>
+            </div>
+            <div class="main-text">
+                <h1>
+                    Hello<br>
+                    I'm Muhammad<br>
+                    Asim Hanif
+                </h1>
+            </div>
+            <div class="paragraph">
+                <p>
+                    I'm a Software Engineering graduate from the National University of Technology (NUTECH), Pakistan,
+                    fluent in Urdu and English. I specialize in developing robust software solutions, building dynamic
+                    web applications, and implementing intelligent machine learning models. My passion lies in
+                    transforming complex challenges into innovative and user-friendly digital products.
+                </p>
+            </div>
+            <div class="contact-button">
+                <a href="#contact">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section container mx-auto">
+        <div class="flex flex-wrap items-center">
+            <div class="w-full lg:w-1/2 content-section animate-on-scroll slide-up">
+                <p>--My Skills</p>
+                <h1>Why Hire Me For the Next Project?</h1>
+                <p class="description">
+                    My expertise spans across the entire software development lifecycle, from designing responsive user
+                    interfaces to building scalable backend systems and deploying advanced machine learning models. I am
+                    dedicated to delivering high-quality, efficient, and innovative solutions that meet complex
+                    requirements and provide tangible value.
+                </p>
+                <div class="cv-button">
+                    <a target="_blank" href="Asim Hanif CV.pdf">Download CV</a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 cards-grid">
+                <div class="skill-card animate-on-scroll scale-in delay-100">
+                    <div class="icon-circle">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Programming Languages</h3>
+                    <p>Python, C++, Java, JavaScript - Strong foundation in various paradigms.</p>
+                </div>
+                <div class="skill-card animate-on-scroll scale-in delay-200">
+                    <div class="icon-circle">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Frontend (HTML5, CSS3, JS) & Backend (Django, Flask, FastAPI) with databases.</p>
+                </div>
+                <div class="skill-card animate-on-scroll scale-in delay-300">
+                    <div class="icon-circle">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Machine Learning & AI</h3>
+                    <p>Scikit-learn, TensorFlow, PyTorch, Pandas, NumPy for model development.</p>
+                </div>
+                <div class="skill-card animate-on-scroll scale-in delay-400">
+                    <div class="icon-circle">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Tools & Platforms</h3>
+                    <p>Git, GitHub, Docker, Postman, VS Code, ZenML for MLOps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="project-section container mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-16 animate-on-scroll fade-in">My Major Projects</h1>
+
+        <div class="project-item">
+            <div class="project-content animate-on-scroll slide-up">
+                <h4>Project 1</h4>
+                <h2>Glaucoma Detection System</h2>
+                <p>
+                    Developed a Glaucoma Detection System using a Graph Neural Network (GNN) model in TensorFlow.
+                    This system classifies fundus images as Glaucoma Positive or Negative, evaluated using confusion
+                    matrix and ROC curve analysis for high accuracy.
+                </p>
+                <a href="https://github.com/codedbyasim?tab=repositories" target="_blank" class="read-more-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10.998" viewBox="0 0 18 10.998">
+                        <g transform="translate(21 -6.501) rotate(90)">
+                            <path
+                                d="M6.59,11.858a.714.714,0,0,0,.627.38h4.066v8.028a.717.717,0,1,0,1.434,0V12.238h4.066a.713.713,0,0,0,.627-.38.748.748,0,0,0-.02-.745l-4.783-7.77a.709.709,0,0,0-1.214,0L6.61,11.113A.754.754,0,0,0,6.59,11.858Z"
+                                fill="currentColor" />
+                        </g>
+                    </svg>
+                    Read more
+                </a>
+            </div>
+            <div class="project-image animate-on-scroll fade-in delay-200">
+                <img src="Glucoma.png" alt="Glaucoma Detection System Infographic" onerror="this.onerror=null;this.src='https://placehold.co/384x288/2d2e32/FFF?text=Image+Not+Found';">
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-content animate-on-scroll slide-up">
+                <h4>Project 2</h4>
+                <h2>Fake News Detection Web App</h2>
+                <p>
+                    Developed a Fake News Detection Web App using Flask with a professional HTML/CSS frontend.
+                    It accepts either a news title or a full article, providing a prediction with a reasoning
+                    explanation to help users identify suspicious content.
+                </p>
+                <a href="https://github.com/codedbyasim/FakeNewsDetection-Flask" target="_blank" class="read-more-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10.998" viewBox="0 0 18 10.998">
+                        <g transform="translate(21 -6.501) rotate(90)">
+                            <path
+                                d="M6.59,11.858a.714.714,0,0,0,.627.38h4.066v8.028a.717.717,0,1,0,1.434,0V12.238h4.066a.713.713,0,0,0,.627-.38.748.748,0,0,0-.02-.745l-4.783-7.77a.709.709,0,0,0-1.214,0L6.61,11.113A.754.754,0,0,0,6.59,11.858Z"
+                                fill="currentColor" />
+                        </g>
+                    </svg>
+                    Read more
+                </a>
+            </div>
+            <div class="project-image animate-on-scroll fade-in delay-200">
+                <img src="Fake News.png" alt="Fake News Detection Infographic" onerror="this.onerror=null;this.src='https://placehold.co/384x288/2d2e32/FFF?text=Image+Not+Found';">
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-content animate-on-scroll slide-up">
+                <h4>Project 3</h4>
+                <h2>Typing Speed Master Pro</h2>
+                <p>
+                    A web-based application built with HTML, CSS, and JavaScript to help users improve their typing
+                    speed. It features a user dashboard, live feedback on typing performance, various typing modes,
+                    and a leaderboard to track progress.
+                </p>
+                <a href="https://github.com/codedbyasim/Typing-Speed-Master-Pro" target="_blank" class="read-more-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10.998" viewBox="0 0 18 10.998">
+                        <g transform="translate(21 -6.501) rotate(90)">
+                            <path
+                                d="M6.59,11.858a.714.714,0,0,0,.627.38h4.066v8.028a.717.717,0,1,0,1.434,0V12.238h4.066a.713.713,0,0,0,.627-.38.748.748,0,0,0-.02-.745l-4.783-7.77a.709.709,0,0,0-1.214,0L6.61,11.113A.754.754,0,0,0,6.59,11.858Z"
+                                fill="currentColor" />
+                        </g>
+                    </svg>
+                    Read more
+                </a>
+            </div>
+            <div class="project-image animate-on-scroll fade-in delay-200">
+                <img src="Typing.png" alt="Typing Speed Master Pro Infographic" onerror="this.onerror=null;this.src='https://placehold.co/384x288/2d2e32/FFF?text=Image+Not+Found';">
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-10">
+            <a target="_blank" href="https://github.com/codedbyasim?tab=repositories" class="conbtn animate-on-scroll scale-in delay-300">View All Projects</a>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stat-card animate-on-scroll scale-in delay-100">
+            <span class="num" data-val="56">0</span>
+            <span class="text">Happy Clients</span>
+        </div>
+        <div class="stat-card animate-on-scroll scale-in delay-200">
+            <span class="num" data-val="87">0</span>
+            <span class="text">Projects Done</span>
+        </div>
+        <div class="stat-card animate-on-scroll scale-in delay-300">
+            <span class="num" data-val="16">0</span>
+            <span class="text">Awards Winning</span>
+        </div>
+        <div class="stat-card animate-on-scroll scale-in delay-400">
+            <span class="num" data-val="7">0</span>
+            <span class="text">Years Experience</span>
+        </div>
+    </section>
+
+    <section class="testimonials-section container mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-16 animate-on-scroll fade-in">What My Clients Say</h1>
+        <div class="slider">
+            <div class="testimonial-slide animate-on-scroll fade-in">
+                <div class="testimonial-image">
+                    <img src="Client 1.jpg" alt="Client Testimonial 1" onerror="this.onerror=null;this.src='https://placehold.co/160x160/2d2e32/FFF?text=Client+1';">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="61.158" height="51.075" viewBox="0 0 61.158 51.075">
+                            <g transform="translate(0 -7.858)">
+                                <g transform="translate(0 7.858)">
+                                    <path
+                                        d="M19.574,31a16.2,16.2,0,0,0-4.478-.654A14.072,14.072,0,0,0,9.482,31.5c1.411-5.167,4.8-14.082,11.556-15.086a1.6,1.6,0,0,0,1.309-1.154l1.476-5.28A1.6,1.6,0,0,0,22.5,7.961a11.212,11.212,0,0,0-1.51-.1c-8.107,0-16.136,8.462-19.524,20.578C-.527,35.544-1.11,46.23,3.789,52.957c2.741,3.764,6.741,5.774,11.887,5.975h.063A14.228,14.228,0,0,0,19.574,31Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M76.754,37.724A14.262,14.262,0,0,0,68.2,31a16.2,16.2,0,0,0-4.477-.654,14.075,14.075,0,0,0-5.615,1.15c1.411-5.167,4.8-14.082,11.556-15.086a1.606,1.606,0,0,0,1.309-1.154l1.476-5.28a1.6,1.6,0,0,0-1.327-2.021,11.2,11.2,0,0,0-1.51-.1c-8.107,0-16.136,8.462-19.524,20.578C48.1,35.544,47.516,46.23,52.416,52.958c2.741,3.763,6.741,5.774,11.886,5.974h.064A14.228,14.228,0,0,0,76.754,37.724Z"
+                                        transform="translate(-17.431 -7.858)" fill="currentColor" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>
+                        "Asim delivered an exceptional Glaucoma Detection System. His deep understanding of GNNs and
+                        TensorFlow, combined with his meticulous evaluation techniques, resulted in a highly accurate
+                        and robust solution. A true professional!"
+                    </p>
+                    <h3>Dr. Aisha Khan</h3>
+                    <p class="designation">Medical Researcher</p>
+                </div>
+            </div>
+            <div class="testimonial-slide animate-on-scroll fade-in">
+                <div class="testimonial-image">
+                    <img src="Client 2.jpg" alt="Client Testimonial 2" onerror="this.onerror=null;this.src='https://placehold.co/160x160/2d2e32/FFF?text=Client+2';">
+                </div>
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="61.158" height="51.075" viewBox="0 0 61.158 51.075">
+                            <g transform="translate(0 -7.858)">
+                                <g transform="translate(0 7.858)">
+                                    <path
+                                        d="M19.574,31a16.2,16.2,0,0,0-4.478-.654A14.072,14.072,0,0,0,9.482,31.5c1.411-5.167,4.8-14.082,11.556-15.086a1.6,1.6,0,0,0,1.309-1.154l1.476-5.28A1.6,1.6,0,0,0,22.5,7.961a11.212,11.212,0,0,0-1.51-.1c-8.107,0-16.136,8.462-19.524,20.578C-.527,35.544-1.11,46.23,3.789,52.957c2.741,3.764,6.741,5.774,11.887,5.975h.063A14.228,14.228,0,0,0,19.574,31Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M76.754,37.724A14.262,14.262,0,0,0,68.2,31a16.2,16.2,0,0,0-4.477-.654,14.075,14.075,0,0,0-5.615,1.15c1.411-5.167,4.8-14.082,11.556-15.086a1.606,1.606,0,0,0,1.309-1.154l1.476-5.28a1.6,1.6,0,0,0-1.327-2.021,11.2,11.2,0,0,0-1.51-.1c-8.107,0-16.136,8.462-19.524,20.578C48.1,35.544,47.516,46.23,52.416,52.958c2.741,3.763,6.741,5.774,11.886,5.974h.064A14.228,14.228,0,0,0,76.754,37.724Z"
+                                        transform="translate(-17.431 -7.858)" fill="currentColor" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>
+                        "The Fake News Detection Web App built by Asim is exactly what we needed. The Flask backend
+                        and clean frontend make it incredibly easy to use, and the reasoning explanation is a huge plus.
+                        Highly recommend his web development skills!"
+                    </p>
+                    <h3>Ahmed Raza</h3>
+                    <p class="designation">Journalist & Editor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer-section">
+        <div class="logo-footer animate-on-scroll fade-in">
+            <a href="#">Asim Hanif</a>
+        </div>
+        <div class="info-footer animate-on-scroll fade-in delay-100">
+            <h3>© 2024 Muhammad Asim Hanif - Crafted with passion and creativity.</h3>
+        </div>
+        <div class="social-icons animate-on-scroll fade-in delay-200">
+            <a href="https://www.linkedin.com/in/masimhanif/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/codedbyasim" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/i_asim_00/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/m_asimhanif" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- Chatbot Toggle Button -->
+    <div class="chatbot-toggle-button" id="chatbot-toggle-button">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <span>Asim's Chatbot</span>
+            <button id="chatbot-close-button">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chatbot-message bot">Hello! I'm Asim's portfolio chatbot. How can I help you?</div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Type your message...">
+            <button id="chatbot-send-button">Send</button>
+        </div>
+    </div>
+
+
+    <!-- jQuery and Slick Carousel JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        // JavaScript for sidebar toggle
+        const body = document.querySelector("body"),
+            nav = document.querySelector("nav"),
+            sidebarOpen = document.querySelector(".sidebarOpen"),
+            sidebarClose = document.querySelector(".sidebarClose");
+
+        sidebarOpen.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        sidebarClose.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+
+        body.addEventListener("click", e => {
+            let clickedElm = e.target;
+            if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+                nav.classList.remove("active");
+            }
+        });
+
+        // Intersection Observer for animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the element must be visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Counter animation
+        const animateCounters = () => {
+            let valueDisplays = document.querySelectorAll(".num");
+            let interval = 4000; // Increased interval for smoother animation
+
+            valueDisplays.forEach((valueDisplay) => {
+                let startValue = 0;
+                let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+                let duration = Math.floor(interval / endValue);
+                let counter = setInterval(function () {
+                    startValue += 1;
+                    valueDisplay.textContent = startValue;
+                    if (startValue == endValue) {
+                        clearInterval(counter);
+                    }
+                }, duration);
+            });
+        };
+
+        // Trigger counter animation when the stats section is in view
+        const statsSection = document.querySelector('.stats-section');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+        statsObserver.observe(statsSection);
+
+        // Slick Carousel initialization
+        $(document).ready(function () {
+            $('.slider').slick({
+                arrows: false,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+            });
+        });
+
+        // Dark/Light Mode Toggle (new segmented button)
+        const themeToggleSegmented = document.getElementById('theme-toggle-segmented');
+        const toggleThumb = document.getElementById('toggle-thumb');
+        const lightLabel = document.querySelector('.light-label');
+        const darkLabel = document.querySelector('.dark-label');
+
+        const applyTheme = (isLightMode) => {
+            if (isLightMode) {
+                document.body.classList.add('light-mode');
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode');
+                // Update text colors for segmented toggle
+                lightLabel.style.color = 'var(--card-bg)'; // Active light text (white)
+                darkLabel.style.color = 'var(--text-color)'; // Inactive dark text (dark)
+                toggleThumb.style.transform = 'translateX(100%)'; // Move thumb right
+            } else {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
+                // Update text colors for segmented toggle
+                lightLabel.style.color = 'var(--text-color)'; // Inactive light text (white)
+                darkLabel.style.color = 'var(--card-bg)'; // Active dark text (white)
+                toggleThumb.style.transform = 'translateX(0)'; // Move thumb left
+            }
+        };
+
+        // Initial theme setup
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            applyTheme(currentTheme === 'light-mode');
+        } else {
+            // Default to dark mode if no theme is set
+            applyTheme(false); // Apply dark mode
+        }
+
+        // Event listener for the new segmented toggle
+        themeToggleSegmented.addEventListener('click', () => {
+            const isLightMode = document.body.classList.contains('dark-mode'); // If currently dark, switch to light
+            applyTheme(isLightMode);
+        });
+
+        // Chatbot functionality
+        const chatbotToggleButton = document.getElementById('chatbot-toggle-button');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatbotCloseButton = document.getElementById('chatbot-close-button');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSendButton = document.getElementById('chatbot-send-button');
+
+        // Define the portfolio knowledge for the chatbot
+        const portfolioKnowledge = {
+            "who is asim hanif": "Muhammad Asim Hanif is a Software Engineering graduate from National University of Technology (NUTECH), Pakistan. He is fluent in Urdu and English. He specializes in developing robust software solutions, building dynamic web applications, and implementing intelligent machine learning models.",
+            "what are asim's technical skills": "Asim's technical skills include: Programming Languages (Python, C++, Java, JavaScript), Web Development (Frontend: HTML5, CSS3, JavaScript; Backend: Django, Flask, FastAPI; Databases: MySQL, PostgreSQL, SQLite), Tools & Platforms (Git, GitHub, Docker, Postman, VS Code, ZenML, FastAPI for MLOps), and Machine Learning & AI (Frameworks: Scikit-learn, TensorFlow, PyTorch; Data Handling: Pandas, NumPy; Model Types: CNN, GNN, Feedforward Neural Networks, Regression, classification models; Evaluation Techniques: Confusion matrix, ROC curve, precision-recall, training time analysis). He also has skills in Design & Presentation (Canva, Microsoft PowerPoint).",
+            "tell me about asim's projects": "Asim's major projects include: Glaucoma Detection System (using GNN in TensorFlow), Fake Job Classifier (NLP-based), Fake News Detection Web App (Flask, HTML/CSS), Boston Housing Price Prediction App (Linear Regression, Flask), Federated Learning Projects (Flower + PyTorch), Typing Speed Master Pro (HTML, CSS, JavaScript), Weather App (real-time API integration), Banking System (Java Swing GUI), Face Recognition System (Java), Financial Management System (Django-based), and an ongoing Escrow-Based Web Application.",
+            "glaucoma detection system": "The Glaucoma Detection System was developed using a Graph Neural Network (GNN) model in TensorFlow. It classifies fundus images as Glaucoma Positive or Negative and was evaluated using confusion matrix and ROC curve analysis for high accuracy. You can find it on GitHub: https://github.com/muhammadasimhanif/glaucoma-detection",
+            "fake news detection web app": "The Fake News Detection Web App was developed using Flask with a professional HTML/CSS frontend. It accepts either a news title or a full article and provides a prediction with a reasoning explanation to help users identify suspicious content. You can find it on GitHub: https://github.com/muhammadasimhanif/fake-news-detection-app",
+            "typing speed master pro": "Typing Speed Master Pro is a web-based application built with HTML, CSS, and JavaScript to help users improve their typing speed. It features a user dashboard, live feedback on typing performance, various typing modes, and a leaderboard to track progress. You can find it on GitHub: https://github.com/muhammadasimhanif/typing-speed-master",
+            "how can I contact asim": "You can contact Asim Hanif via Email: muhammad.asim.hanif@example.com or Phone: +92 300 1234567.",
+            "what are asim's social media links": "You can find Asim Hanif on social media: LinkedIn: https://www.linkedin.com/in/muhammadasimhanif, GitHub: https://github.com/muhammadasimhanif, Instagram: https://www.instagram.com/muhammadasimhanif, Twitter: https://twitter.com/muhammadasimhanif.",
+            "hello": "Hello! I'm Asim's portfolio chatbot. How can I help you?",
+            "hi": "Hi there! I'm Asim's portfolio chatbot. What can I tell you about him?",
+            "hey": "Hey! I'm Asim's portfolio chatbot. How can I assist you today?"
+        };
+
+        function generateSimpleResponse(userQuery) {
+            const lowerCaseQuery = userQuery.toLowerCase();
+            for (const key in portfolioKnowledge) {
+                if (lowerCaseQuery.includes(key)) {
+                    return portfolioKnowledge[key];
+                }
+            }
+            // Fallback for general greetings
+            if (lowerCaseQuery.includes("hello") || lowerCaseQuery.includes("hi") || lowerCaseQuery.includes("hey")) {
+                return "Hello! I'm Asim's portfolio chatbot. How can I help you?";
+            }
+            return "Sorry, I don't have information on that specific topic. You can ask me about Asim's skills, projects, or contact info.";
+        }
+
+        chatbotToggleButton.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('open');
+        });
+
+        chatbotCloseButton.addEventListener('click', () => {
+            chatbotContainer.classList.remove('open');
+        });
+
+        chatbotSendButton.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        async function sendMessage() {
+            const userMessage = chatbotInput.value.trim();
+            if (userMessage === '') return;
+
+            displayMessage(userMessage, 'user');
+            chatbotInput.value = '';
+
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.classList.add('chatbot-message', 'bot', 'loading-indicator');
+            loadingIndicator.textContent = 'Typing...';
+            chatbotMessages.appendChild(loadingIndicator);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+            // Generate response using the simple logic
+            const botResponse = generateSimpleResponse(userMessage);
+
+            // Simulate typing delay
+            await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 1000)); // 0.5 to 1.5 seconds
+
+            chatbotMessages.removeChild(loadingIndicator);
+            displayMessage(botResponse, 'bot');
+        }
+
+        function displayMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chatbot-message', sender);
+            messageElement.textContent = message;
+            chatbotMessages.appendChild(messageElement);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+    </script>
+</body>
+
+</html>
