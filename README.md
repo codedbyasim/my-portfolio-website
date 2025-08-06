@@ -1,4 +1,6 @@
-## My Personal Portfolio Website
+# My Personal Portfolio Website
+
+![Screenshot](https://github.com/codedbyasim/my-portfolio-website/blob/main/Image.PNG?raw=true)
 
 A simple, modern, and fully responsive portfolio website designed to showcase my **skills, projects**, and **professional experience**.
 
@@ -29,17 +31,11 @@ Built using **HTML**, **CSS**, and **JavaScript**, this site provides a sleek us
 - **JavaScript** – Interactivity  
 - **Bootstrap** – Layouts and components  
 - **Font Awesome** – Icon set
----
-
-## Screenshot
-
-> (https://github.com/codedbyasim/my-portfolio-website/blob/main/Image.PNG)
 
 ---
 
 ## Author
 
-**Muhammad Asim Hanif**
-**GitHub**: [codedbyasim](https://github.com/codedbyasim)
+**Muhammad Asim Hanif**  
+**GitHub**: [codedbyasim](https://github.com/codedbyasim)  
 **LinkedIn**: [Asim Hanif](https://www.linkedin.com/in/masimhanif/)
-
