@@ -33,7 +33,7 @@ Built using **HTML**, **CSS**, and **JavaScript**, this site provides a sleek us
 
 ## Screenshot
 
-> *(Add a screenshot here if available — you can use `![Screenshot](link-to-image)`)*
+> (https://github.com/codedbyasim/my-portfolio-website/blob/main/Image.PNG)
 
 ---
 
